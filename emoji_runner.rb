@@ -1,9 +1,14 @@
 class EmojiRunner
   class << self
     def run(code)
-      pr = code.chars.find { |chr| chr == "🗣" }
-      if pr
-        puts code.gsub(/🗣/, "")
+      code.split("\n").each do |line|
+        case line.strip[0]
+        when "🗣" 
+          puts line.gsub("🗣", "")
+        when "🎤"
+          puts line.gsub("🎤", "")  
+          gets
+        end
       end
     end
   end
